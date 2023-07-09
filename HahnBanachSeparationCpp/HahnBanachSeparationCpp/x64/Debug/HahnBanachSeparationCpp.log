@@ -1,2 +1,7 @@
 ﻿  Main.cpp
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(21,2): warning C4091: 'typedef ': ignored on left of 'Point' when no variable is declared
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(94,2): warning C4091: 'typedef ': ignored on left of 'Polygon' when no variable is declared
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(32,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(44,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(72,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   HahnBanachSeparationCpp.vcxproj -> C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\x64\Debug\HahnBanachSeparationCpp.exe
