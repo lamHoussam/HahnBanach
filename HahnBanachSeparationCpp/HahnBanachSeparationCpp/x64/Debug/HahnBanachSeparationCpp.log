@@ -1,9 +1,17 @@
 ﻿  Main.cpp
-C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(21,2): warning C4091: 'typedef ': ignored on left of 'Point' when no variable is declared
-C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(33,2): warning C4091: 'typedef ': ignored on left of 'Line' when no variable is declared
-C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(110,2): warning C4091: 'typedef ': ignored on left of 'Polygon' when no variable is declared
-C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(48,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(60,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(25,2): warning C4091: 'typedef ': ignored on left of 'Point' when no variable is declared
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(20,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(38,2): warning C4091: 'typedef ': ignored on left of 'Line' when no variable is declared
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(173,2): warning C4091: 'typedef ': ignored on left of 'Polygon' when no variable is declared
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(44): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(53,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(65,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(88,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(110,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(137,80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(139,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(145,12): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(146,12): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(152,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\HahnBanachSeparationCpp\Main.cpp(153,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   HahnBanachSeparationCpp.vcxproj -> C:\Users\houss\Desktop\Projects\HahnBanach\HahnBanachSeparationCpp\x64\Debug\HahnBanachSeparationCpp.exe

@@ -16,6 +16,10 @@ public:
 	inline int GetX() const { return x; } 
 	inline int GetY() const { return y; }
 
+	inline float Distance(Point p) {
+		return sqrtf((x - p.x) * (x - p.x) + (y - p.y) * (y - p.y));
+	}
+
 private:
 	int x, y;
 };
@@ -26,6 +30,7 @@ public:
 
 	inline Point GetPoint1() { return p1; }
 	inline Point GetPoint2() { return p2; }
+
 
 
 private:
@@ -98,66 +103,77 @@ public:
 		return true;
 	}
 
+	Line GetClosestEdge(Polygon pol, Point* p) {
+		if (pol.GetNumOfPoints() == 0)
+			return Line(Point(0, 0), Point(0, 0));
+
+		int numPoints1 = points.size();
+		int numPoints2 = pol.GetNumOfPoints();
+		float minDistance = FLT_MAX;
+		Line closestEdge(Point(0, 0), Point(0, 0));
+
+		for (int i = 0; i < numPoints1; i++) {
+			Point current = points[i];
+			//Point next = points[(i + 1) % numPoints1];
+
+			for (int j = 0; j < numPoints2; j++) {
+				Point p1 = pol.GetPoint(j);
+				Point p2 = pol.GetPoint((j + 1) % numPoints2);
+
+				float distance = DistancePointToLine(p1, p2, current);
+				if (distance < minDistance) {
+					minDistance = distance;
+					closestEdge = Line(p1, p2);
+					if (p)
+						*p = current;
+				}
+			}
+		}
+
+		return closestEdge;
+	}
+
+	float DistancePointToLine(Point p1, Point p2, Point p) {
+		float normalLength = sqrtf((p2.GetX() - p1.GetX()) * (p2.GetX() - p1.GetX()) +
+			(p2.GetY() - p1.GetY()) * (p2.GetY() - p1.GetY()));
+		return fabsf((p.GetX() - p1.GetX()) * (p2.GetY() - p1.GetY()) -
+			(p.GetY() - p1.GetY()) * (p2.GetX() - p1.GetX())) /
+			normalLength;
+	}
+
+	Point GetClosestPointOnLine(Point p1, Point p2, Point p) {
+		float dx = p2.GetX() - p1.GetX();
+		float dy = p2.GetY() - p1.GetY();
+		float t = ((p.GetX() - p1.GetX()) * dx + (p.GetY() - p1.GetY()) * dy) /
+			(dx * dx + dy * dy);
+
+		t = std::max(0.0f, std::min(1.0f, t));
+
+		int closestX = p1.GetX() + t * dx;
+		int closestY = p1.GetY() + t * dy;
+
+		return Point(closestX, closestY);
+	}
+
+
+	void RenderClosestEdge(SDL_Renderer* renderer, Polygon pol) {
+		Point* p = nullptr;
+		Line edge = GetClosestEdge(pol, p);
+
+		SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+		SDL_RenderDrawLine(renderer, edge.GetPoint1().GetX(), edge.GetPoint1().GetY(), 
+			edge.GetPoint2().GetX(), edge.GetPoint2().GetY());
+	}
+
+
 	void Reset() { points.clear(); }
 
 private:
 	std::vector<Point> points;
 };
 
-
-int orientation(Point p, Point q, Point r) {
-	double val = (q.GetY() - p.GetY()) * (r.GetX() - q.GetX()) - (q.GetX() - p.GetX()) * (r.GetY() - q.GetY());
-	if (val == 0) return 0; 
-	return (val > 0) ? 1 : 2; 
-}
-
-bool doIntersect(Point p1, Point q1, Point p2, Point q2) {
-	int o1 = orientation(p1, q1, p2);
-	int o2 = orientation(p1, q1, q2);
-	int o3 = orientation(p2, q2, p1);
-	int o4 = orientation(p2, q2, q1);
-
-	if (o1 != o2 && o3 != o4) return true;
-
-	// Special cases: segments are collinear and overlapping
-	if (o1 == 0 && orientation(p1, p2, q1) == 0 && orientation(p1, q2, q1) == 0)
-		return true;
-	if (o2 == 0 && orientation(p1, p2, q2) == 0 && orientation(p1, q1, q2) == 0)
-		return true;
-	if (o3 == 0 && orientation(p2, p1, q2) == 0 && orientation(p2, q1, q2) == 0)
-		return true;
-	if (o4 == 0 && orientation(p2, p1, q1) == 0 && orientation(p2, q2, q1) == 0)
-		return true;
-
-	return false; 
-}
-
-
-void DrawSmallestSegmentBetween(SDL_Renderer* renderer, Polygon pol1, Polygon pol2) {
-
-	Point p1 = pol1.GetPoint(0);
-	Point p2 = pol2.GetPoint(0);
-	for (int i = 0; i < pol1.GetNumOfPoints(); ++i) {
-		int j = (i + 1) % pol1.GetNumOfPoints();
-		for (int k = 0; k < pol2.GetNumOfPoints(); ++k) {
-			int l = (k + 1) % pol2.GetNumOfPoints();
-			if (!doIntersect(pol1.GetPoint(i), pol1.GetPoint(j), pol2.GetPoint(k), pol2.GetPoint(l))) {
-				p1 = pol1.GetPoint(i);
-				p2 = pol2.GetPoint(k);
-
-				std::cout << "Found" << std::endl;
-				SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
-				SDL_RenderDrawLine(renderer, p1.GetX(), p1.GetY(), p2.GetX(), p2.GetY());
-
-				return;
-			}
-		}
-	}
-
-}
-
 void DrawSeparationLine(SDL_Renderer* renderer, Polygon pol1, Polygon pol2) {
-
+	// Draws Separation line between pol1 and pol2
 }
 
 int main() {
@@ -171,7 +187,6 @@ int main() {
 
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (renderer == nullptr) {
-		// Handle renderer creation error
 		return 1;
 	}
 
@@ -208,7 +223,8 @@ int main() {
 			}
 			if (e.key.keysym.sym == SDLK_a) {
 				std::cout << "Draw Separation Line" << std::endl;
-				DrawSmallestSegmentBetween(renderer, pol1, pol2);
+				pol1.RenderClosestEdge(renderer, pol2);
+				DrawSeparationLine(renderer, pol1, pol2);
 			}
 
 
@@ -264,9 +280,6 @@ int main() {
 
 		SDL_RenderPresent(renderer); 
 	}
-
-
-
 
 	std::cout << "Hello world" << std::endl;
 
