@@ -1,0 +1,30 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{}%
+\contentsline {section}{\numberline {2}Théorème de Hahn-Banach dans un Espace Vectoriel Normé}{3}{}%
+\contentsline {subsection}{\numberline {2.1}Introduction}{3}{}%
+\contentsline {subsection}{\numberline {2.2}Préliminaires}{3}{}%
+\contentsline {subsection}{\numberline {2.3}Théorème de Hahn-Banach: forme analytique}{3}{}%
+\contentsline {subsection}{\numberline {2.4}Démonstration}{4}{}%
+\contentsline {section}{\numberline {3}Espaces vectoriels topologiques}{5}{}%
+\contentsline {subsection}{\numberline {3.1}Introduction}{5}{}%
+\contentsline {subsection}{\numberline {3.2}Conitnuité}{5}{}%
+\contentsline {subsection}{\numberline {3.3}Topologie produit}{6}{}%
+\contentsline {subsection}{\numberline {3.4}Définition des Espaces Vectoriels Topologiques (EV-Top)}{6}{}%
+\contentsline {subsection}{\numberline {3.5}Exemples d'Espaces Vectoriels Normés (EVN)}{6}{}%
+\contentsline {subsection}{\numberline {3.6}Voisinages d'un Point}{7}{}%
+\contentsline {subsection}{\numberline {3.7}Propriétés des voisinages de 0 dans un espace vectoriel topologique}{7}{}%
+\contentsline {subsection}{\numberline {3.8}Espaces Vectoriels Topologiques Séparés}{8}{}%
+\contentsline {subsubsection}{\numberline {3.8.1}Définition}{8}{}%
+\contentsline {subsubsection}{\numberline {3.8.2}Propriétés}{8}{}%
+\contentsline {subsubsection}{\numberline {3.8.3}Exemples}{9}{}%
+\contentsline {subsection}{\numberline {3.9}Adhérence d'un Sous-Espace Vectoriel}{9}{}%
+\contentsline {subsection}{\numberline {3.10}Structure du Quotient}{9}{}%
+\contentsline {subsubsection}{\numberline {3.10.1}Introduction}{9}{}%
+\contentsline {subsubsection}{\numberline {3.10.2}Définition de l'Espace Quotient}{10}{}%
+\contentsline {subsubsection}{\numberline {3.10.3}Propriétés des Espaces Quotients}{10}{}%
+\contentsline {subsubsection}{\numberline {3.10.4}Exemple d'Espace Quotient (Tore)}{10}{}%
+\contentsline {section}{\numberline {4}Théorème de Hahn-Banach dans le cas d'un EV-Top}{11}{}%
+\contentsline {subsection}{\numberline {4.1}Enoncé}{11}{}%
+\contentsline {subsection}{\numberline {4.2}Demonstration}{11}{}%
+\contentsline {section}{\numberline {5}Programme en SDL2 et C++ pour tracer des polygones convexes et la droite séparatrice}{13}{}%
+\contentsline {subsection}{\numberline {5.1}Fonctionnalités du programme}{14}{}%
+\contentsline {section}{\numberline {6}Conclusion}{15}{}%

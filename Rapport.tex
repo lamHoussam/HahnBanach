@@ -1,0 +1,78 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+
+\title{Étude du théorème de Hahn-Banach dans les espaces vectoriels topologiques}
+\author{LAMLIH Houssam}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Dans ce travail, nous étudions le théorème de Hahn-Banach dans sa forme 
+géométrique, en nous intéressant aux espaces vectoriels topologiques dont 
+la topologie est issue d'une métrique. Plus particulièrement, nous examinons
+le cas des espaces vectoriels normés traité dans \cite{brezis1983analyse} 
+et le cas plus général des espaces vectoriels topologiques abordé dans 
+\cite{schwartz1970topologie}. 
+
+\section{Théorème de Hahn-Banach dans les espaces vectoriels normés}
+\begin{proof}[Preuve du théorème de Hahn-Banach]
+    On note $E$ l'ensemble des couples $(V, u)$ tels que $V$ soit un sous-espace vectoriel de $E$ contenant $F$, et $u$ une forme linéaire sur $V$ qui coïncide avec $L$ sur $F$ et vérifie $u(x) \leq p(x)$ pour tout $x \in V$. On munit $E$ de la relation d'ordre $\leq$ définie par $(V_1, u_1) \leq (V_2, u_2)$ si $V_1 \subset V_2$ et $u_2 = u_1$ sur $V$.
+    
+    L'ensemble $(E, \leq)$ est ordonné par construction. De plus, il est non vide car contient $L$ et inductif car si $\{(V_i, u_i), i \in I\}$ est une partie totalement ordonnée de $E$, alors $\bigcup_{i \in I} V_i$ est un sous-espace vectoriel de $E$ contenant $F$, et l'endomorphisme $u$ défini sur $\bigcup_{i \in I} V_i$ par $u(x) = u_i(x)$ si $x \in V_i$ est bien un majorant de la partie $\{(V_i, u_i), i \in I\}$.
+    
+    D'après le lemme de Zorn, $E$ admet donc un élément maximal $(V, L_e)$. Supposons par l'absurde que $V \neq E$. Alors $E \setminus V$ contient au moins un élément non nul $x$. Pour un réel donné $a$, on définit alors une forme linéaire $L_{ea}$ sur $V \oplus \mathbb{R}$ par $L_{ea}(y) = L_e(y)$ si $y \in V$, et $L_{ea}(x) = a$.
+    
+    Grâce aux propriétés de $L_e$ et de $p$, on peut ajuster $a$ de telle sorte que $\forall y \in V, \forall \lambda \in \mathbb{R}, L_{ea}(y + \lambda x) = L_e(y) + \lambda a \leq p(y + \lambda x)$. En effet, cette inégalité est clairement vérifiée pour tout $y \in V$ si $\lambda = 0$. De plus, l'inégalité restreinte aux $\lambda > 0$ est équivalente à $\forall y \in V, L_e(y) + a \leq p(y + x)$, alors que pour $\lambda < 0$, elle est équivalente à $\forall z \in V, L_e(z) - a \leq p(z - x)$. Finalement, cette inégalité est donc vérifiée si et seulement si $a$ est choisi de telle sorte que
+    \[
+    \sup_{z \in V} (L_e(z) - p(z - x)) \leq a \leq \inf_{y \in V} (p(y + x) - L_e(y)).
+    \]
+    
+    Comme pour tout $(y, z) \in V^2$, on a $L_e(y) + L_e(z) \leq p(y + z) \leq p(y + x) + p(z - x)$, un tel choix de $a$ est possible.
+    
+    On a donc $(V, L_e) \leq (V \oplus \mathbb{R}, L_{ea})$. Comme $x \notin V$, cela contredit la maximalité de $(V, L_e)$.
+    
+    \end{proof}
+    
+    
+\section{Espaces vectoriels topologiques}
+
+Nous introduisons tout d'abord la notion d'espace vectoriel topologique 
+(EV-Top) et présentons des exemples concrets, notamment les espaces 
+vectoriels normés. Nous étudions ensuite les propriétés des voisinages 
+de zéro et des voisinages d'un point dans un EV-Top. Nous discutons 
+également les espaces vectoriels topologiques séparés et démontrons que 
+l'adhérence d'un sous-espace vectoriel est un sous-espace vectoriel. 
+Enfin, nous abordons la notion de quotient $E/F$ dans un EV-Top.
+
+\section{Théorème de Hahn-Banach dans les espaces vectoriels topologiques}
+
+Dans cette dernière partie, nous nous concentrons sur le théorème de 
+Hahn-Banach dans le cas des espaces vectoriels topologiques. Nous 
+éclaircissons le théorème (T.2, XIX,6; 1) mentionné dans 
+\cite{schwartz1970topologie}, ce qui nécessite l'étude de résultats 
+supplémentaires sur les espaces vectoriels topologiques. Nous nous 
+appuyons sur différentes références, y compris \cite{nier2002introduction} 
+et \cite{dixmier1981topologie}, pour obtenir une vision complète du sujet.
+
+\section{Conclusion}
+
+En conclusion, nous avons étudié le théorème de Hahn-Banach dans sa 
+forme géométrique pour les espaces vectoriels topologiques. Nous avons 
+examiné le cas des espaces vectoriels normés, en nous référant à 
+\cite{brezis1983analyse}, et le cas plus général des EV-Top, en 
+utilisant les références \cite{schwartz1970topologie}, 
+\cite{nier2002introduction}, et \cite{dixmier1981topologie} pour 
+approfondir nos connaissances.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

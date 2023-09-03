@@ -1,0 +1,608 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{biblatex} %Imports biblatex package
+\addbibresource{biblio.bib} %Import the bibliography file
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Définition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollaire}[section]
+
+
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemme}[section]
+
+
+\begin{document}
+
+\title{Théorème de Hahn-Banach}
+\author{LAMLIH Houssam}
+\date{}
+
+\maketitle
+
+
+
+
+\tableofcontents
+
+\section{Introduction}
+
+Les résultats fondamentaux sur les espaces topologiques dont la topologie est induite par une métrique, en particulier les espaces vectoriels normés, ont été largement étudiés. Cependant, dans ce travail, notre objectif est d'approfondir l'étude du théorème de Hahn-Banach dans sa forme géométrique.
+
+Le théorème de Hahn-Banach est un résultat clé en analyse fonctionnelle qui permet d'étendre des fonctionnelles linéaires sur des sous-espaces à tout l'espace vectoriel. Dans ce contexte, nous considérons un IR-espace vectoriel topologique $E$, un convexe ouvert non vide $C$ et un sous-espace affine $L$ disjoint de $C$. Le théorème affirme qu'il existe alors un hyperplan affine contenant $L$ et disjoint de $C$, ce qui implique qu'il est également fermé.
+
+Notre étude se déroulera en plusieurs étapes. Tout d'abord, nous examinerons le cas où $E$ est un IR-espace vectoriel normé, tel que traité dans la référence [1]. Ensuite, nous aborderons le cas plus général d'un IR-espace vectoriel topologique en nous appuyant sur le théorème (T.2, XIX,6; 1) présenté dans la référence [2]. Cela nécessitera l'étude préalable de certains résultats sur les espaces vectoriels topologiques.
+
+Le plan que nous suivrons est le suivant :
+\begin{itemize}
+    \item Dans un premier temps, nous présenterons le théorème de Hahn-Banach dans le cas d'un espace vectoriel normé (EVN) en nous référant à [1].
+    \item Ensuite, nous aborderons les espaces vectoriels topologiques (EV-Top) en fournissant leur définition et des exemples, notamment les espaces vectoriels normés (EVN). Nous étudierons également les propriétés des voisinages de l'origine et des voisinages d'un point dans ces espaces. Nous discuterons également des EV-Top séparés et de la propriété selon laquelle l'adhérence d'un sous-espace vectoriel est également un sous-espace vectoriel. Enfin, nous examinerons le quotient $E/F$ dans un EV-Top, où $F$ est un sous-espace vectoriel de $E$.
+    \item Enfin, nous reviendrons au théorème de Hahn-Banach dans le cadre plus général d'un EV-Top, en utilisant les résultats précédemment établis.
+\end{itemize}
+
+Cette étude approfondie du théorème de Hahn-Banach dans différents contextes d'espaces vectoriels topologiques nous permettra de mieux comprendre les concepts et les propriétés fondamentaux de l'analyse fonctionnelle.
+
+\section{Théorème de Hahn-Banach dans un Espace Vectoriel Normé}
+\subsection{Introduction}
+Dans ce chapitre, nous étudierons le théorème de Hahn-Banach dans sa forme analytique pour les espaces vectoriels normés. Le théorème de Hahn-Banach est un résultat fondamental en analyse fonctionnelle qui permet d'étendre des fonctionnelles linéaires sur des sous-espaces à tout l'espace vectoriel.
+
+\subsection{Préliminaires}
+Avant de présenter le théorème de Hahn-Banach, nous rappellerons brièvement les notions de base utilisées dans la démonstration.
+
+\begin{definition}
+    $P$ muni d'une relation d'ordre partiel $\leq$. On dit que $Q$ inclus dans $P$ est totalement ordonné si pour tout $(a, b) \in Q$, on a $a \leq b$ ou $b \leq a$.
+\end{definition}
+
+\begin{definition}
+    Soit $Q$ un sous-ensemble de $P$ ; on dit que $c \in P$ est un majorant de $Q$ si pour tout $a \in Q$, $a \leq c$.
+\end{definition}
+
+
+\begin{definition}
+    $m \in P$ est un élément maximal de $P$ si pour tout $x \in P$ tel que $m \leq x$, on a $x = m$.
+\end{definition}
+
+
+\begin{definition}
+    $P$ est inductif si tout sous-ensemble totalement ordonné de $P$ admet un majorant.
+\end{definition}
+
+\begin{lemma}
+    (Lemme de Zorn) Tout ensemble ordonné, inductif, non vide, admet un élément maximal.
+\end{lemma}
+
+\subsection{Théorème de Hahn-Banach: forme analytique}
+Le théorème garantit l'existence d'une extension linéaire continue d'une fonctionnelle linéaire définie sur un sous-espace à tout l'espace vectoriel.
+
+Soit $p : E \rightarrow \mathbb{R}$ une application telle que :
+
+\begin{itemize}
+    \item $p(\lambda x) = \lambda p(x) \quad \forall x \in E, \lambda \geq 0,$
+    \item $p(x + y) \leq p(x) + p(y)$
+\end{itemize}
+
+Soit $G \subseteq E$ un sous-espace vectoriel et $g : G \rightarrow \mathbb{R}$ une application linéaire telle que $g(x) \leq p(x)$ pour tout $x \in G$.
+
+Alors il existe une forme linéaire $f$ définie sur $E$ qui prolonge $g$ et telle que $f(x) \leq p(x)$ pour tout $x \in E$.
+
+
+\subsection{Démonstration}
+
+Soit $P = \{ h : D(h) \subseteq E \rightarrow \mathbb{R} \mid D(h) \text{ sous-espace vectoriel de } E, h \text{ linéaire}, G \subseteq D(h), h \text{ prolonge } g \text{ et } h(x) \leq p(x) \text{ pour tout } x \in D(h) \}$.
+On munit $P$ de la relation d'ordre suivante :
+
+$h_1 \leq h_2 \Leftrightarrow D(h_1) \subseteq D(h_2) \text{ et } h_2 \text{ prolonge } h_1$.
+
+Ceci représente effectivement une relation d'ordre puisque :
+
+\begin{itemize}
+    \item $h_1 \leq h_1$ (Réflexive)
+    
+    Puisque $D(h_1) \subseteq D(h_1) \text{ et } h_1 \text{ prolonge } h_1$
+    \item $h_1 \leq h_2$ et $h_2 \leq h_1$ $\Rightarrow$ $h_1 = h_2$ (Antisymétrique)
+    
+    On a $h_1 \leq h_2$ et $h_2 \leq h_1$
+    donc
+    \[
+    \begin{cases}
+        D(h_1) \subseteq D(h_2) \text{ et } h_2 \text{ prolonge } h_1 \\ 
+        D(h_2) \subseteq D(h_1) \text{ et } h_1 \text{ prolonge } h_2
+        
+    \end{cases} 
+    \]
+    Alors $D(h_1) = D(h_2) \text{ et } h_1 = h_2$
+    \item $h_1 \leq h_2$ et $h_2 \leq h_3$ $\Rightarrow$ $h_1 \leq h_3$ (Transitive)
+
+    On a $h_1 \leq h_2$ et $h_2 \leq h_3$
+    donc 
+    \[
+    \begin{cases}
+        D(h_1) \subseteq D(h_2) \text{ et } h_2 \text{ prolonge } h_1 \\ 
+        D(h_2) \subseteq D(h_3) \text{ et } h_3 \text{ prolonge } h_2
+    \end{cases} 
+    \]
+    Alors $D(h_1) \subseteq D(h_3) \text { et } h_3 \text { prolonge } h_1$
+    
+\end{itemize}
+
+Puisque $g \in P$, $P$ est non vide.
+
+Soit $Q \subseteq P$ un sous-ensemble ordonné défini par $Q = \{ h_i \mid i \in I \}$ tel que $D(h) = \bigcup_{i \in I} (D(h_i))$ et $h(x) = h_i(x)$ si $x \in D(h_i)$.
+
+Il faut montrer que $h$ majore $Q$ pour dire que $P$ est inductif.
+
+On a pour tout $x$ dans $D(h)$, $h(x)$ existe. 
+
+Soit $x \in D(h)$ et on suppose qu'il existe $i_1$ et $i_2$ tels que $x \in D(h_{i1})$ et $x \in D(h_{i2})$.
+
+Donc 
+\[
+\begin{cases}
+    h(x) = h_{i1}(x), \\
+    h(x) = h_{i2}(x),
+\end{cases}
+\]
+
+Et on sait que $Q$ est totalement ordonné donc $h_{i1} \leq h_{i2}$ ou bien $h_{i2} \leq h_{i1}$.
+
+Pour  $h_{i1} \leq h_{i2}$, on a $D(h_{i1}) \subseteq D(h_{i2})$ et $h_{i1}(x) = h_{i2}(x)$ pour $x$ dans $D(h_{i1})$. Le même raisonnement s'applique pour le cas où $h_{i1} \leq h_{i2}$.
+
+On peut voir l'unicité des valeurs de $h$, donc $h$ est bien définie et majore $Q$. Par conséquent, $P$ est inductif.
+
+D'après le lemme de Zorn, $P$ admet un élément maximal que l'on notera $f$. Montrons que $D(f) = E$.
+
+Supposons par l'absurde que $D(f) \neq E$. Soit $x_0 \notin D(f)$. Posons $D(h) = D(f) + \mathbb{R}x_0$.
+
+Pour $x \in D(f)$, définissons $h(x + t x_0) = f(x) + t \alpha$ où $\alpha$ est tel que $h \in P$.
+
+On sait que $h(x + t x_0) \leq p(x + t x_0)$, donc
+\[
+\begin{cases}
+    f(x) + \alpha \leq p(x + x_0), \\
+    f(x) - \alpha \leq p(x - x_0),
+\end{cases}
+\]
+pour tout $x \in D(f)$.
+
+
+
+C'est-à-dire qu'il faut choisir $\alpha$ tel que 
+\[
+\sup_{y \in D(f)} (f(y) - p(y - x_0)) \leq \alpha \leq \inf_{x \in D(f)} (p(x + x_0) - f(x)).
+\]
+
+Ce choix est possible puisque 
+\[
+f(y) - p(y - x_0) \leq p(x+x_0) - f(x),
+\]
+pour tout $x \in D(f)$ et tout $y \in D(f)$.
+
+On a donc 
+\[
+f(x) + f(y) \leq p(x+y) \leq p(x+x_0) + p(y - x_0).
+\]
+
+On conclut que $f$ est majorée par $h$ et que $f \neq h$, ce qui est absurde puisque $f$ est maximale.
+
+\section{Espaces vectoriels topologiques}
+\subsection{Introduction}
+Dans ce chapitre, nous étudierons les espaces vectoriels topologiques (EV-Top). Les EV-Top sont des structures algébriques combinées à des notions de topologie, ce qui permet d'introduire des concepts d'ouvertures, de limites et de continuité dans les espaces vectoriels.
+
+\begin{definition}
+    Une topologie sur un ensemble $X$ est une collection $\mathcal{T}$ de sous-ensembles de $X$ ayant les propriétés suivantes :
+
+    \begin{itemize}
+        \item L'ensemble vide $\emptyset$ et $X$ lui-même appartiennent à $\mathcal{T}$.
+        \item L'intersection finie de tout nombre d'éléments de $\mathcal{T}$ appartient à $\mathcal{T}$.
+        \item L'union arbitraire d'éléments de $\mathcal{T}$ appartient à $\mathcal{T}$.
+    \end{itemize}
+
+    L'ensemble $X$ muni de la topologie $\mathcal{T}$ est appelé un espace topologique.
+
+\end{definition}
+
+\subsection{Conitnuité}
+Soient \(X\) et \(Y\) deux espaces topologiques et \(f : X \to Y\) une application. On dit que \(f\) est \textbf{continue} si pour tout sous-ensemble ouvert \(V \subset Y\), l'ensemble \(f^{-1}(V)\) est ouvert dans \(X\).
+
+\subsection{Topologie produit}
+La \textbf{topologie produit} sur le produit cartésien $X \times Y$ de deux espaces topologiques $X$ et $Y$ est définie comme suit : un sous-ensemble $U \subseteq X \times Y$ est ouvert dans la topologie produit si, et seulement si, pour chaque point $(x, y) \in U$, il existe des ensembles ouverts $V \subseteq X$ contenant $x$ et $W \subseteq Y$ contenant $y$ tels que $V \times W \subseteq U$. Autrement dit, les ensembles ouverts de la topologie produit sont les unions d'ensembles de la forme $V \times W$, où $V$ est ouvert dans $X$ et $W$ est ouvert dans $Y$.
+
+
+\subsection{Définition des Espaces Vectoriels Topologiques (EV-Top)}
+
+
+\begin{definition}
+    Un espace vectoriel topologique est un espace vectoriel $E$ muni d'une topologie $\mathcal{T}$, telle que les opérations de l'addition vectorielle et de la multiplication par un scalaire sont continues par rapport à cette topologie.
+    
+    Plus formellement, soit $E$ un espace vectoriel et $\mathcal{T}$ une topologie sur $E$. On dit que $(E, \mathcal{T})$ est un espace vectoriel topologique si les deux opérations suivantes sont continues :
+    
+    \begin{itemize}
+        \item L'addition vectorielle : $+: E \times E \rightarrow E$, $(x, y) \mapsto x + y$.
+        \item La multiplication par un scalaire : $\cdot: \mathbb{K} \times E \rightarrow E$, $(\lambda, x) \mapsto \lambda x$.
+    \end{itemize}    
+\end{definition}
+
+\begin{definition}
+La topologie d'un espace vectoriel normé \( E \) induite par la norme \( \|\cdot\| \) est définie par la collection des ensembles ouverts \( U \) tels que pour tout point \( x \) dans \( U \), il existe un réel positif \( \varepsilon \) tel que la boule ouverte centrée en \( x \) avec un rayon de \( \varepsilon \) soit entièrement contenue dans \( U \)
+\[ U \text{ est ouvert si } \forall x \in U, \exists \varepsilon > 0 \text{ tel que } B(x, \varepsilon) = \{y \in E \,|\, \|y - x\| < \varepsilon\} \subseteq U. \]
+
+\end{definition}
+
+\subsection{Exemples d'Espaces Vectoriels Normés (EVN)}
+Les espaces vectoriels normés (EVN) sont des exemples importants d'espaces vectoriels topologiques. Dans un EVN, une norme est associée à chaque vecteur, ce qui définit la topologie de l'espace. Voici quelques exemples d'EVN :
+
+\begin{itemize}
+    \item L'espace euclidien $\mathbb{R}^n$ muni de la norme euclidienne.
+    \item L'espace des fonctions continues sur un intervalle $[a, b]$ muni de la norme de la convergence uniforme.
+\end{itemize}
+
+Ces exemples illustrent comment une norme peut être utilisée pour définir une topologie sur un espace vectoriel, ce qui permet d'introduire des concepts de convergence et de continuité.
+
+\subsection{Voisinages d'un Point}
+Dans un espace topologique, les voisinages d'un point sont des ensembles qui contiennent ce point et qui permettent de capturer sa proximité avec d'autres points de l'espace. Voici quelques propriétés des voisinages d'un point $p$ :
+
+\begin{enumerate}
+    \item Tout ouvert contenant $p$ est un voisinage de $p$.
+    \item Tout sous-ensemble contenant un voisinage de $p$ est également un voisinage de $p$.
+    \item L'intersection de deux voisinages de $p$ est un voisinage de $p$.
+\end{enumerate}
+
+Les voisinages d'un point sont essentiels pour décrire les concepts de convergence, de limite et de continuité dans un espace topologique.
+
+\subsection{Propriétés des voisinages de 0 dans un espace vectoriel topologique}
+
+\begin{definition}
+    Soient $X$ un espace topologique et $x$ un point de $X$. Un système fondamental de voisinages de $x$ est un ensemble $\mathcal{S}$ de voisinages de $x$ tel que pour tout voisinage $V$ de $x$, il existe $W \in \mathcal{S}$ tel que $W \subset V$.
+\end{definition}
+
+\begin{definition}
+    Une partie $A$ d'un espace vectoriel $E$ est dite équilibrée si
+    
+    $\forall \alpha \in K$ avec $|\alpha| \leq 1$ et $\forall x \in A$, on a $\alpha x \in A$. 
+\end{definition}
+
+\begin{definition}
+    Une partie $A$ de $E$ est dite absorbante si
+    
+    $\forall x \in E$, $\exists \varepsilon > 0$ tel que $|\alpha| \leq \varepsilon$ $\implies$ $\alpha x \in A$.
+\end{definition}
+
+\begin{theorem}
+    Soit $E$ un espace vectoriel topologique et $V(x)$ l'ensemble des voisinages de $x$ dans $E$. Alors :
+
+    \begin{enumerate}
+        \item $V(x) = x + V(0)$.
+        \item Si $V_1, V_2, ..., V_n$ sont des voisinages de $0$, alors $V_1 \cap V_2 \cap ... \cap V_n$ est un voisinage de $0$.
+        \item Si $V$ est un voisinage de $0$, il existe un voisinage $W$ de $0$ tel que $W + W \subseteq V$.
+        \item Pour tout voisinage $V$ de $0$ et tout $\lambda \neq 0$, on a $\lambda V$ un voisinage de 0.
+        \item $\forall V \in V(0)$, V est absorbant
+        \item Il existe un système fondamental de voisinages de $0$ qui sont équilibrés.
+    \end{enumerate}
+
+\end{theorem}
+
+\begin{theorem}
+    Dans un espace vectoriel topologique, 
+    l'origine admet un système fondamental de voisinages équilibrés ouverts, et un système fondamental de voisinages équilibrés fermés.
+\end{theorem}
+
+\begin{corollary}
+    Soient $E$ un espace vectoriel topologique et $F$ un sous-espace vectoriel. Pour que l'espace vectoriel topologique quotient $E/F$ soit séparé, il faut et il suffit que $F$ soit fermé dans $E$.
+\end{corollary}
+
+
+
+\subsection{Espaces Vectoriels Topologiques Séparés}
+
+Les espaces vectoriels topologiques séparés, également appelés espaces de Hausdorff, sont des espaces vectoriels topologiques ayant une propriété de séparation supplémentaire. Cette propriété de séparation permet d'isoler les points de l'espace de manière plus précise. Dans cette section, nous explorerons les caractéristiques des espaces vectoriels topologiques séparés.
+
+\subsubsection{Définition}
+
+Un espace vectoriel topologique $E$ est appelé séparé ou de Hausdorff s'il satisfait l'une des conditions équivalentes suivantes :
+
+\begin{itemize}
+    \item Pour tout $x, y \in E$ tels que $x \neq y$, il existe des ouverts $U$ et $V$ tels que $x \in U$, $y \in V$ et $U \cap V = \emptyset$.
+    \item Les singletons de $E$ sont des ensembles fermés.
+    \item La diagonale $\Delta = \{(x, x) \mid x \in E\}$ est un ensemble fermé dans $E \times E$ muni de la topologie produit.
+\end{itemize}
+
+\subsubsection{Propriétés}
+
+Les espaces vectoriels topologiques séparés possèdent plusieurs propriétés intéressantes:
+
+\begin{itemize}
+    \item Tout sous-espace d'un espace vectoriel topologique séparé est également séparé.
+    \item La limite d'une suite convergente dans un espace vectoriel topologique séparé est unique.
+    \item L'intersection finie d'ensembles fermés dans un espace vectoriel topologique séparé est également fermée.
+\end{itemize}
+
+Ces propriétés garantissent une bonne séparation entre les points de l'espace et facilitent l'étude de la convergence et de la continuité dans les espaces vectoriels topologiques.
+
+\begin{theorem}
+    Soit $E$ un espace vectoriel de dimension finie sur $K = \mathbb{R}$ ou $\mathbb{C}$. Alors il existe une topologie et une seule qui fait de $E$ un espace vectoriel topologique séparé; on l'appelle la topologie canonique de $E$.
+\end{theorem}
+
+\begin{corollary}
+    Soit $u$ une application linéaire d'un espace vectoriel topologique séparé $E$ de dimension finie dans un espace vectoriel topologique quelconque $F$. Alors $u$ est continue.
+
+\end{corollary}
+
+
+\subsubsection{Exemples}
+
+Voici quelques exemples d'espaces vectoriels topologiques séparés :
+
+\begin{itemize}
+    \item L'espace euclidien $\mathbb{R}^n$ muni de la topologie usuelle est un espace vectoriel topologique séparé.
+    \item L'espace des fonctions continues sur un intervalle fermé et borné est un espace vectoriel topologique séparé.
+\end{itemize}
+
+Ces exemples illustrent la présence de la propriété de séparation dans des espaces vectoriels topologiques couramment étudiés.
+
+\subsection{Adhérence d'un Sous-Espace Vectoriel}
+
+Soit $E$ un espace vectoriel et $F$ un sous-espace vectoriel de $E$. Nous allons démontrer que l'adhérence de $F$, notée $\overline{F}$, est également un sous-espace vectoriel de $E$.
+
+Pour montrer que $\overline{F}$ est un sous-espace vectoriel, nous devons vérifier les trois conditions suivantes :
+
+\begin{enumerate}
+    \item \textbf{Inclusion de zéro} : Comme $F$ est un sous-espace vectoriel, il contient le vecteur nul $\mathbf{0}$. Par conséquent, $\mathbf{0} \in \overline{F}$.
+    \item \textbf{Stabilité sous l'addition} : Soient $x, y \in \overline{F}$. Cela signifie que pour tout voisinage $V_x$ de $x$ et tout voisinage $V_y$ de $y$, il existe des vecteurs $u \in V_x \cap F$ et $v \in V_y \cap F$. Comme $F$ est un sous-espace vectoriel, il est stable sous l'addition, donc $u + v \in F$. Puisque $V_x \cap F$ et $V_y \cap F$ sont des voisinages de $x$ et $y$ respectivement, il existe un voisinage $V$ de $x + y$ tel que $V \subseteq V_x + V_y$. Ainsi, $V \cap F \subseteq (V_x + V_y) \cap F = (V_x \cap F) + (V_y \cap F) \subseteq F$. Par conséquent, $x + y \in \overline{F}$.
+    \item \textbf{Stabilité sous la multiplication par un scalaire} : Soit $\lambda$ un scalaire et $x \in \overline{F}$. Cela signifie que pour tout voisinage $V_x$ de $x$, il existe un vecteur $u \in V_x \cap F$. Comme $F$ est un sous-espace vectoriel, il est stable sous la multiplication par un scalaire, donc $\lambda u \in F$. Puisque $V_x \cap F$ est un voisinage de $x$, il existe un voisinage $V$ de $\lambda x$ tel que $V \subseteq \lambda V_x$. Ainsi, $\lambda V \cap F \subseteq \lambda (V_x \cap F) \subseteq F$. Par conséquent, $\lambda x \in \overline{F}$.
+\end{enumerate}
+
+Ainsi, nous avons montré que $\overline{F}$ satisfait les trois conditions nécessaires pour être un sous-espace vectoriel de $E$. Par conséquent, l'adhérence d'un sous-espace vectoriel $F$ est également un sous-espace vectoriel.
+
+\subsection{Structure du Quotient}
+
+\subsubsection{Introduction}
+
+La topologie quotient est une branche importante de la topologie qui étudie les espaces topologiques construits à partir d'espaces de départ en identifiant certains de leurs points. Elle permet de créer de nouveaux espaces en conservant certaines propriétés topologiques de l'espace de départ. Dans ce chapitre, nous allons explorer la définition de la topologie quotient, quelques propriétés intéressantes et donner des exemples pour mieux comprendre ce concept.
+
+\subsubsection{Définition de l'Espace Quotient}
+
+\begin{definition}
+Soit $(X, \tau)$ un espace topologique et $R$ une relation d'équivalence sur $X$. L'espace quotient de $X$ par rapport à $R$, noté $X/R$, est défini comme l'ensemble des classes d'équivalence de $R$ dans $X$ muni de la topologie quotient $\tau_q$ définie comme suit :
+\[
+\tau_q = \{ U \subseteq X/R \mid \pi^{-1}(U) \text{ est ouvert dans } X \}
+\]
+où $\pi : X \rightarrow X/R$ est la projection canonique définie par $\pi(x) = [x]$, où $[x]$ est la classe d'équivalence de $x$ dans $X$.
+\end{definition}
+
+\subsubsection{Propriétés des Espaces Quotients}
+
+\begin{theorem}
+L'espace quotient $X/R$ est un espace topologique.
+\end{theorem}
+
+\begin{proof}
+Pour montrer que $X/R$ est un espace topologique, nous devons vérifier les trois axiomes de la topologie :
+\begin{enumerate}
+\item $X/R$ est non vide car il contient au moins la classe d'équivalence de chaque élément de $X$.
+\item $X/R$ contient l'ensemble vide car la classe d'équivalence de l'ensemble vide est elle-même l'ensemble vide.
+\item L'intersection finie de parties de $X/R$ est encore dans $X/R$ car les préimages d'intersections finies d'ensembles ouverts dans $X/R$ sont des intersections finies d'ensembles ouverts dans $X$, ce qui préserve la topologie.
+\end{enumerate}
+Ainsi, $X/R$ est un espace topologique.
+\end{proof}
+
+\begin{theorem}
+La projection $\pi : X \rightarrow X/R$ est une application continue.
+\end{theorem}
+
+\begin{proof}
+Pour montrer que $\pi$ est continue, nous devons vérifier que pour tout ensemble ouvert $U$ dans $X/R$, $\pi^{-1}(U)$ est ouvert dans $X$. Or, par la définition de la topologie quotient, $U$ est ouvert dans $X/R$ si et seulement si $\pi^{-1}(U)$ est ouvert dans $X$. Ainsi, $\pi$ est une application continue.
+\end{proof}
+
+\subsubsection{Exemple d'Espace Quotient (Tore)}
+
+L'ensemble de départ est un carré unité $[0, 1] \times [0, 1]$ dans le plan euclidien $\mathbb{R}^2$. Mathématiquement, cela peut être représenté comme suit :
+\[
+[0, 1] \times [0, 1] = \{(x, y) \in \mathbb{R}^2 \mid 0 \leq x \leq 1 \text{ et } 0 \leq y \leq 1\}
+\]
+
+Nous définissons une relation d'équivalence $\sim$ sur $[0, 1] \times [0, 1]$ en identifiant certains points du bord du carré. Cette relation est définie comme suit :
+
+\[
+    (x_1, y_1) \sim (x_2, y_2) \quad \text{si et seulement si} \quad
+    \begin{cases}
+        x_1 = x_2 \text{ et } y_1 = y_2, \quad \text{(Points intérieurs du carré)} \\
+        x_1 = x_2 \text{ et } |y_2 - y_1| = 1, \quad \text{Identification des bords verticaux} \\
+        y_1 = y_2 \text{ et } |x_2 - x_1| = 1, \quad \text{Identification des bords horizontaux}
+    \end{cases}
+\]
+
+En identifiant les points de cette manière, nous obtenons un espace quotient. Les points qui sont identifiés forment des classes d'équivalence. L'espace résultant est un tore, souvent noté $T^2$.
+\[
+T^2 = ([0, 1] \times [0, 1])/\sim
+\]
+
+L'espace quotient $T^2$ est un tore, où les points du bord du carré sont identifiés de manière à ce qu'ils forment une structure de tore. Cette construction est un exemple classique d'espace topologique quotient, où la relation d'équivalence conduit à une nouvelle topologie sur l'ensemble résultant, dans ce cas, un tore.
+
+
+\section{Théorème de Hahn-Banach dans le cas d'un EV-Top}
+
+
+\subsection{Enoncé}
+\indent
+
+(1) Soient $E$ un espace vectoriel et $f$ une forme linéaire sur $E$, non identiquement nulle. Alors l'équation $f(x) = 0$ définit un sous-espace vectoriel hyperplan $H_1$ de $E$.
+
+(2) Inversement, tout hyperplan $H$ admet une infinité d'équations de ce type. Toutes les formes linéaires correspondantes sont proportionnelles à l'une d'entre elles.
+
+(3) Si $E$ est un espace vectoriel topologique, un hyperplan $H$ est soit fermé, soit dense. Il est fermé si et seulement si les formes linéaires $f$ définissant $H$ par l'équation $f(x) = 0$ sont continues.
+
+\subsection{Demonstration}
+
+\indent
+
+
+(1) Soit $H_1 = \text{Ker}(f)$ et soit $e \in E$ tel que $f(e) \neq 0$, on peut supposer que $f(e) = 1$.
+
+Considérons un élément arbitraire $x \in E$. Nous pouvons l'exprimer de manière unique sous la forme :
+
+$x = \lambda e + y$, où $\lambda \in K$ et $y \in H_1$.
+
+Maintenant, examinons la valeur de $f(x)$ :
+
+$f(x) = f(\lambda e + y)$.
+
+Puisque $f$ est une forme linéaire, nous avons :
+
+$f(x) = \lambda f(e) + f(y)$.
+
+Cependant, puisque $y \in H_1$, c'est-à-dire $y \in \text{Ker}(f)$, nous avons $f(y) = 0$. Ainsi, nous pouvons simplifier l'expression précédente :
+
+$f(x) = \lambda$.
+
+En utilisant cette relation, nous pouvons réécrire $x$ comme suit :
+
+$x = f(x)e + (x - f(x)e)$.
+
+Notons que $y = x - f(x)e$ est un élément de $H_1$. Par conséquent, nous avons montré que tout $x$ peut être exprimé comme la somme d'un élément appartenant à $H_1$ et d'un multiple de $e$.
+
+Cela montre que $H_1$ est supplémentaire à $\text{Vect}(e)$ dans $E$.
+
+Ainsi, $H_1$ est un hyperplan dans $E$.
+
+Cette première partie de la démonstration établit que l'équation $f(x) = 0$ définit un sous-espace vectoriel hyperplan $H_1$ de $E$.\\
+
+
+
+\indent
+
+(2) Soit $H$ un hyperplan de $E$. Choisissons un vecteur $e$ qui est supplémentaire à $H$ dans $E$. Cela signifie que tout vecteur $x$ de $E$ peut s'écrire de manière unique sous la forme $x = \lambda e + y$, où $\lambda \in K$ et $y \in H$.
+
+Considérons maintenant l'application linéaire $f$. Puisque $x = \lambda e + y$, nous avons :
+
+$f(x) = f(\lambda e + y)$.
+
+En utilisant la linéarité de $f$, nous pouvons écrire :
+
+$f(x) = \lambda f(e) + f(y)$.
+
+Comme $y \in H$ et $f(y) = 0$ 
+
+Cela montre que la valeur de $f(x)$ dépend linéairement de $\lambda$ pour tout $x \in E$. En d'autres termes, $f$ est une application linéaire.
+
+De plus, puisque $e$ est un vecteur supplémentaire à $H$, il ne se trouve pas dans $H$, et donc $f(e) \neq 0$. Cela implique que $f$ n'est pas identiquement nulle.
+
+Maintenant, supposons que $f(x) = 0$. Alors, en utilisant l'expression précédente $x = \lambda e + y$, nous obtenons $\lambda f(e) = 0$. Puisque $f(e) \neq 0$, 
+nous devons avoir $\lambda = 0$. Cela signifie que $x = y \in H$. Ainsi, l'ensemble des zéros de $f$ correspond à $H$.
+
+Maintenant, considérons une autre forme linéaire $g$ qui est nulle sur $H$. Nous pouvons choisir $g$ telle que $g(e) = k$ pour une certaine constante $k$. Alors, pour tout $x \in E$, nous avons :
+
+$g(x) = g(\lambda e + y) = \lambda g(e) + g(y) = \lambda k$.
+
+D'autre part, nous savons que $f(x) = \lambda$ pour tout $x \in E$. Par conséquent, nous avons :
+
+$g(x) = k \lambda = kf(x)$.
+
+Ainsi, nous avons établi que $g$ est proportionnelle à $f$. Cette démonstration montre que tout hyperplan $H$ admet une infinité d'équations de la forme $f(x) = 0$, et les formes linéaires correspondantes sont proportionnelles les unes aux autres.\\
+
+(3) Soit $f$ une forme linéaire continue sur un espace vectoriel $E$, et soit $H = f^{-1}({0})$ son noyau. 
+Et on sait que l'image réciproque d'un fermé par une fonction continue est un fermé
+donc $H$ est un fermé.\\
+
+On suppose que $H$ est un fermé.
+On peut écrire $f$ sous la forme $f = \tilde{f} \circ \pi$ 
+
+où $\pi : E \rightarrow E/H$ est l'application canonique de $E$ sur $E/H$, et $\tilde{f}$ est évidemment une forme linéaire continue sur $E/H$.
+
+On suppose que $H$ est fermé donc l'espace quotient $E/H$ est séparé (corollaire 3.1). 
+Étant donné que $H$ est un hyperplan, $E/H$ est un espace vectoriel topologique 
+de dimension $1$ puisque $dim(E/H)=dim(E) - dim(H)$. 
+
+Puisqu'il est de dimension finie et séparé, $E/H$ a la topologie canonique (Théorème 3.3), 
+donc à partir du (Corollaire 3.2) toutes les formes linéaires sur cet espace sont continues. 
+Ainsi, $\pi$ est continue, et donc $f = \tilde{f} \circ \pi$ est également continue.
+
+% \section{Démo sur l'existence d'une droite de séparation entre deux convexes séparés}
+
+\section{Programme en SDL2 et C++ pour tracer des polygones convexes et la droite séparatrice}
+Dans les chapitres précédents on a parlé de la forme géométrique du théorème de Hahn-Banach qui dit que:
+
+
+Soient $X$ un espace vectoriel réel, $A$ et $B$ deux sous-ensembles convexes de $X$ tels que $A$ soit fermé et $A \cap B = \emptyset$. Alors il existe une droite affine (c'est-à-dire qu'il existe un hyperplan affine $H$) qui sépare de manière stricte $A$ et $B$.
+
+
+Le programme suivant est écrit en SDL2 et C++ et permet à l'utilisateur de tracer deux polygones convexes séparés. À la fin de l'exécution du programme, il dessine la ligne séparatrice entre ces deux polygones. L'existence de cette ligne est garantie grâce à la forme géométrique du théorème de Hahn-Banach.\\
+
+
+Tout d'abord on définit les structures Point, Polygone, Line
+\lstset{language=C++}
+\begin{lstlisting}
+    typedef struct Point {
+    public:
+        Point(int _x, int _y) : x(_x), y(_y) {}
+    
+        inline int GetX() const { return x; } 
+        inline int GetY() const { return y; }
+    
+        inline float Distance(Point p);
+    private:
+        int x, y;
+    };
+
+
+    typedef struct Line {
+    public:
+        Line(Point _p1, Point _p2) : p1(_p1), p2(_p2){}
+
+        inline Point GetPoint1() { return p1; }
+        inline Point GetPoint2() { return p2; }
+
+
+
+    private:
+        Point p1, p2;
+    };
+
+    typedef struct Polygon {
+    public:
+        Polygon(){}
+
+        inline int GetNumOfPoints();
+        const inline Point GetPoint(int ind);
+        void AddPoint(const Point point);
+        void Render(SDL_Renderer* renderer);
+        bool PointInside(const Point point);
+        bool IsConvex();
+        Line GetClosestEdge(Polygon pol, Point* p);
+        float DistancePointToLine(Point p1, Point p2, Point p);
+        Point GetClosestPointOnLine(Point p1, Point p2, Point p);
+        void RenderClosestEdge(SDL_Renderer* renderer, Polygon pol);
+        void Reset();
+
+    private:
+        std::vector<Point> points;
+    };
+
+
+
+\end{lstlisting}
+
+
+
+\subsection{Fonctionnalités du programme}
+
+Le programme offre les fonctionnalités suivantes :
+
+\begin{itemize}
+  \item L'utilisateur peut tracer les polygones en cliquant avec la souris.
+  \item Les points sont enregistrés pour chaque polygone et sont reliés pour former les polygones convexes.
+  \item Lorsque l'utilisateur clique sur le bouton "a", le programme calcule et dessine la ligne séparatrice entre les deux polygones.
+  \item Les polygones doivent être convexes pour que la ligne séparatrice puisse être tracée correctement.
+\end{itemize}
+
+\section{Conclusion}
+\cite{Dixmier}
+Le programme en SDL2 et C++ permet de tracer et de visualiser les polygones convexes et de calculer la ligne séparatrice entre eux. Il utilise la bibliothèque SDL2 pour la manipulation des graphiques et offre une interface utilisateur simple pour interagir avec les polygones tracés.
+
+\printbibliography
+
+\end{document}

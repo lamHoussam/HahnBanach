@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+
+\title{Espaces Vectoriels Topologiques}
+\author{Votre Nom}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Les espaces vectoriels topologiques (EV-Top) sont des structures mathématiques qui combinent à la fois les propriétés des espaces vectoriels et des espaces topologiques. Ils permettent de définir une notion de convergence et de continuité dans le contexte des espaces vectoriels.
+
+\section{Définition}
+
+Un espace vectoriel topologique est un espace vectoriel $E$ muni d'une topologie $\mathcal{T}$, telle que les opérations de l'addition vectorielle et de la multiplication par un scalaire sont continues par rapport à cette topologie.
+
+Plus formellement, soit $E$ un espace vectoriel et $\mathcal{T}$ une topologie sur $E$. On dit que $(E, \mathcal{T})$ est un espace vectoriel topologique si les deux opérations suivantes sont continues :
+
+\begin{enumerate}
+    \item L'addition vectorielle : $+: E \times E \rightarrow E$, $(x, y) \mapsto x + y$.
+    \item La multiplication par un scalaire : $\cdot: \mathbb{K} \times E \rightarrow E$, $(\lambda, x) \mapsto \lambda x$.
+\end{enumerate}
+
+\section{Exemples d'espaces vectoriels normés}
+
+Les espaces vectoriels normés sont des exemples courants d'espaces vectoriels topologiques. Un espace vectoriel normé est un espace vectoriel $E$ muni d'une norme $\|\cdot\|$, qui est une fonction $E \rightarrow \mathbb{R}$ satisfaisant les propriétés suivantes :
+
+\begin{enumerate}
+    \item $\|x\| \geq 0$ pour tout $x \in E$, avec égalité si et seulement si $x = 0$.
+    \item $\|\lambda x\| = |\lambda| \|x\|$ pour tout $\lambda \in \mathbb{K}$ et $x \in E$.
+    \item $\|x + y\| \leq \|x\| + \|y\|$ pour tout $x, y \in E$ (inégalité triangulaire).
+\end{enumerate}
+
+Les espaces vectoriels normés sont souvent utilisés en analyse fonctionnelle pour étudier les propriétés de convergence et de continuité.
+
+\section{Propriétés des voisinages de l'origine}
+
+Dans un espace vectoriel topologique, les voisinages de l'origine jouent un rôle important. Voici quelques propriétés des voisinages de l'origine :
+
+\begin{enumerate}
+    \item Tout voisinage de l'origine est absorbant, c'est-à-dire que pour tout voisinage $U$ de l'origine, il existe un scalaire $\lambda > 0$ tel que $\lambda U = \{ \lambda x \,|\, x \in U \}$ contienne tout l'espace $E$.
+    
+    \item Tout voisinage de l'origine est symétrique, c'est-à-dire que pour tout voisinage $U$ de l'origine, il existe un voisinage $V$ de l'origine tel que $V = -V = \{-x \,|\, x \in V\}$.
+    
+    \item Tout voisinage de l'origine contient un sous-voisinage convexe de l'origine, c'est-à-dire un voisinage $V$ de l'origine tel que pour tout $x, y \in V$ et tout scalaire $\lambda$ vérifiant $0 \leq \lambda \leq 1$, le point $\lambda x + (1-\lambda)y$ appartient également à $V$.
+\end{enumerate}
+
+Ces propriétés reflètent les comportements caractéristiques des voisinages de l'origine dans un espace vectoriel topologique.
+
+\section{Propriétés des voisinages d'un point}
+
+En plus des propriétés des voisinages de l'origine, les voisinages d'un point quelconque $x$ d'un espace vectoriel topologique possèdent également des propriétés intéressantes. Voici quelques exemples :
+
+\begin{enumerate}
+    \item Un voisinage de $x$ est un ensemble qui contient une boule ouverte centrée en $x$.
+    
+    \item Tout voisinage de $x$ contient un sous-voisinage de $x$ qui est un espace affine, c'est-à-dire que pour tout voisinage $U$ de $x$, il existe un voisinage $V$ de $x$ tel que pour tout $y \in V$ et tout scalaire $\lambda$, le point $x + \lambda(y - x)$ appartient également à $V$.
+    
+    \item Si $E$ est un espace vectoriel de dimension finie, alors tout voisinage de $x$ contient un sous-voisinage ouvert de $x$.
+\end{enumerate}
+
+Ces propriétés illustrent les caractéristiques des voisinages d'un point dans un espace vectoriel topologique.
+
+\section{Conclusion}
+
+Les espaces vectoriels topologiques fournissent un cadre mathématique permettant d'étudier la convergence et la continuité dans le contexte des espaces vectoriels. Les exemples d'espaces vectoriels normés illustrent bien cette notion. Les propriétés des voisinages de l'origine et des voisinages d'un point sont essentielles pour comprendre les comportements topologiques dans ces espaces.
+
+\end{document}

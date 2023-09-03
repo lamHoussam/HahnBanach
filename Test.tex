@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+
+\title{Espaces Vectoriels Topologiques Séparés}
+\author{Votre Nom}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Les espaces vectoriels topologiques séparés, également connus sous le nom d'espaces de Hausdorff, sont des espaces vectoriels topologiques qui satisfont une propriété de séparation spécifique. Cette propriété permet d'isoler les points de manière plus précise et de garantir certaines propriétés de convergence.
+
+\section{Définition}
+
+Un espace vectoriel topologique $(E, \mathcal{T})$ est dit séparé ou de Hausdorff si pour tout couple distinct de points $x, y \in E$, il existe deux voisinages $U$ de $x$ et $V$ de $y$ tels que $U \cap V = \emptyset$.
+
+En d'autres termes, dans un espace vectoriel topologique séparé, chaque paire de points distincts peut être séparée par des voisinages qui ne se chevauchent pas.
+
+\section{Adhérence d'un sous-espace vectoriel}
+
+Dans un espace vectoriel topologique, l'adhérence d'un sous-espace vectoriel est également un sous-espace vectoriel. L'adhérence d'un sous-espace vectoriel $F$ de $E$, notée $\overline{F}$, est l'ensemble de tous les points de $E$ qui peuvent être approchés arbitrairement près par des points de $F$.
+
+Formellement, on peut définir l'adhérence d'un sous-espace vectoriel $F$ dans un espace vectoriel topologique $(E, \mathcal{T})$ comme suit :
+
+\[
+\overline{F} = \{x \in E \,|\, \forall U \in \mathcal{T}, \, U \cap F \neq \emptyset \Rightarrow x \in U\}
+\]
+
+L'adhérence d'un sous-espace vectoriel possède plusieurs propriétés intéressantes, telles que la fermeture et la préservation des opérations vectorielles.
+
+\section{Quotient $E/F$ dans un espace vectoriel topologique}
+
+Le quotient $E/F$ dans un espace vectoriel topologique est un espace vectoriel topologique défini à partir d'un sous-espace vectoriel fermé $F$ de $E$. Le quotient $E/F$ est l'ensemble des classes d'équivalence définies par la relation d'équivalence suivante :
+
+\[
+x \sim y \Leftrightarrow x - y \in F
+\]
+
+La topologie sur le quotient $E/F$ est définie de telle sorte que la projection canonique $\pi : E \rightarrow E/F$ soit continue. Cela signifie que les ensembles ouverts dans $E/F$ sont les images inverses des ensembles ouverts dans $E$ par la projection $\\pi$.
+
+Le quotient $E/F$ hérite également des opérations vectorielles de $E$, ce qui en fait un espace vectoriel. Les opérations de l'addition et de la multiplication par un scalaire sont définies comme suit :
+
+\[
+[x] + [y] = [x + y] \quad \text{et} \quad \lambda \cdot [x] = [\lambda x]
+\]
+
+où $[x]$ et $[y]$ représentent les classes d'équivalence de $x$ et $y$ respectivement, et $\lambda \in \mathbb{K}$ est un scalaire.
+
+Le quotient $E/F$ est également muni d'une topologie naturelle, appelée la topologie quotient, qui permet de définir des notions de convergence et de continuité dans cet espace.
+
+\section{Conclusion}
+
+Les espaces vectoriels topologiques séparés, l'adhérence d'un sous-espace vectoriel et le quotient $E/F$ dans un espace vectoriel topologique sont des concepts importants en topologie vectorielle. Les espaces séparés garantissent certaines propriétés de séparation, tandis que l'adhérence d'un sous-espace vectoriel et le quotient $E/F$ permettent d'étudier les propriétés de fermeture et de structure des espaces vectoriels topologiques.
+
+\end{document}
